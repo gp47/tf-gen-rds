@@ -23,3 +23,18 @@ variable "vpc_id" {
   type        = string
   description = "The ID of the VPC."
 }
+
+variable "db_name" {
+  type        = string
+  description = "The RDS DB name."
+}
+
+variable "db_username" {
+  type        = string
+  description = "The RDS DB username."
+}
+
+variable "db_password" {
+  type        = string
+  description = "The RDS DB password."
+}

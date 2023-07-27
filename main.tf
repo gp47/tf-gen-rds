@@ -10,7 +10,9 @@ module "db" {
 
   identifier = "${var.project_name}-db"
 
-  # All available versions: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts
+  create_db_option_group    = false
+  create_db_parameter_group = false
+
   engine               = "postgres"
   engine_version       = "14"
   family               = "postgres14"
@@ -19,28 +21,19 @@ module "db" {
 
   allocated_storage = 5
 
-  db_name  = "completePostgresql"
-  username = "complete_postgresql"
-  port     = 5432
-
+  db_name                     = var.db_name
+  username                    = var.db_username
   manage_master_user_password = true
-  password                    = "password123"
+  password                    = var.db_password
+  port                        = 5432
 
   db_subnet_group_name   = var.db_subnet_group
   vpc_security_group_ids = [module.security_group.security_group_id]
 
+  skip_final_snapshot = true
+  deletion_protection = false
+
   tags = var.tags
-}
-
-module "db_disabled" {
-  source  = "terraform-aws-modules/rds/aws"
-  version = "~> 6.1.0"
-
-  identifier = "${var.project_name}-disabled"
-
-  create_db_instance        = false
-  create_db_parameter_group = false
-  create_db_option_group    = false
 }
 
 ################################################################################

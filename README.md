@@ -23,7 +23,6 @@ Terraform code to create an GEN-AWS-RDS
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_db"></a> [db](#module\_db) | terraform-aws-modules/rds/aws | ~> 6.1.0 |
-| <a name="module_db_disabled"></a> [db\_disabled](#module\_db\_disabled) | terraform-aws-modules/rds/aws | ~> 6.1.0 |
 | <a name="module_security_group"></a> [security\_group](#module\_security\_group) | terraform-aws-modules/security-group/aws | ~> 5.0 |
 
 ## Resources
@@ -36,7 +35,10 @@ Terraform code to create an GEN-AWS-RDS
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_db_name"></a> [db\_name](#input\_db\_name) | The RDS DB name. | `string` | n/a | yes |
+| <a name="input_db_password"></a> [db\_password](#input\_db\_password) | The RDS DB password. | `string` | n/a | yes |
 | <a name="input_db_subnet_group"></a> [db\_subnet\_group](#input\_db\_subnet\_group) | ID of database subnet group. | `string` | n/a | yes |
+| <a name="input_db_username"></a> [db\_username](#input\_db\_username) | The RDS DB username. | `string` | n/a | yes |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The Project Name. | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags assigned to the created resources | `map(string)` | `{}` | no |
 | <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | The VPC CIDR Block. | `string` | n/a | yes |
